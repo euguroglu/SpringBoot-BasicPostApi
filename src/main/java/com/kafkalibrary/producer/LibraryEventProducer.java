@@ -53,6 +53,7 @@ public class LibraryEventProducer {
         Integer key = libraryEvent.getLibraryEventId();
         String value = objectMapper.writeValueAsString(libraryEvent);
 
+        //Producer record can be used instead of (topic, key, value) as input in the kafkaTemplate.send method
         ProducerRecord<Integer, String> producerRecord = buildProducerRecord(key, value, topic);
         ListenableFuture<SendResult<Integer,String>> listenableFuture = kafkaTemplate.send("event-library", key, value);
         listenableFuture.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {
