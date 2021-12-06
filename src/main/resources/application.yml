@@ -13,7 +13,7 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
     admin:
       properties:
-        bootstrap.servers: localhost:5053, localhost:5054
+        bootstrap.servers: localhost:5052, localhost:5053, localhost:5054
 ---
 spring:
   profiles: dev
